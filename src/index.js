@@ -22,20 +22,3 @@ const run = async () => {
     run()
 
 }
-
-
-// collection.insert([{ type: "turtle", breed: "fresh water", name: "Rocky", age: 15 },
-// { type: "turtle", breed: "fresh water", name: "Balboa", age: 15 }])
-//     .then((docs) => {
-//     }).catch((err) => {
-//     })
-//     .then(() => {
-//         return collection.find()
-//     })
-//     .then((docs) => {
-//     })
-//     .then(() => db.close())
-
-// collection.find()
-
-
