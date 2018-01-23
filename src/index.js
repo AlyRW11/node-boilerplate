@@ -4,21 +4,27 @@ const url = 'mongodb://Aly:123456@ds153577.mlab.com:53577/animals'
 
 const db = monk(url)
 
-const collection = db.get('Pets')
+const pets = db.get('Pets')
 
 
 
 const run = async () => {
-    const myPets = [
-        { type: "turtle", breed: "fresh water", name: "Rocky", age: 15 },
-        { type: "turtle", breed: "fresh water", name: "Balboa", age: 15 }
-    ]
-    await collection.insert(myPets)
+    const rocky = await pets.findOne({ name: 'Rocky'})
 
-    const results = await collection.find()
+    if(!rocky)
+    await pets.insert(
+        {type: 'Turtle', breed: 'Fresh Water', name: 'Rocky', age: '15'}
+    )
+
+    const balboa = await pets.findOne({ name: 'Balboa'})
+    if(!balboa)
+    await pets.insert(
+        {type: 'Turtle', breed: 'Fresh Water', name: 'Balboa', age: '15'}
+    )
+
+    const results = await pets.find()
 
     console.log(results)
-
-    run()
-
 }
+
+run()
